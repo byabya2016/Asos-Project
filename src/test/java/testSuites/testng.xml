@@ -1,0 +1,8 @@
+<suite name="testng" verbose="1">
+    <test name="PositiveTest">
+        <classes>
+        </classes>
+    </test>
+
+</suite>
+
