@@ -21,8 +21,11 @@ public class MyAccountPage extends BasePage {
         return instance;
     }
 
+
+    public static By acceptButton = By.xpath("//div/button[@id='onetrust-accept-btn-handler']");
+    public static By agreementBanner = By.xpath("//div[@id='onetrust-banner-sdk']");
     private By clickSingInLogo = By.xpath("//span[@type='accountUnfilled']");
-    private By clickMyAccountButton = By.xpath("//a[@data-testid='myaccount-link']");
+    private By clickMyAccountButton = By.id("myAccountDropdown");
     private By clickSignInTab = By.xpath("//div[@aria-current='page']");
     private By signInWithGoogleTab = By.id("signup-google");
     private By inputEmailAddressField = By.id("identifierId");
@@ -46,36 +49,43 @@ public class MyAccountPage extends BasePage {
 
     public boolean isTheSignInLogoDisplayed() {
         LOG.info("Verify If The Sign In Logo is Displayed");
+        sleep(5000);
         return driver.findElement(clickSingInLogo).isDisplayed();
     }
 
     public void clickTheSignInTab() {
         LOG.info("Click Sign In Logo Button");
+        sleep(5000);
         driver.findElement(clickSingInLogo).click();
     }
 
     public boolean isMyAccountButtonDisplayed() {
         LOG.info("Verify if My Account Button is Displayed");
+        sleep(2000);
         return driver.findElement(clickMyAccountButton).isDisplayed();
     }
 
     public void clickMyAccountButton() {
         LOG.info("Click My Account Button");
+        sleep(5000);
         driver.findElement(clickMyAccountButton).click();
     }
 
     public boolean isSignInWithGoogleTabDisplayed() {
         LOG.info("Verify if Sign In With Google Tab displayed");
+        sleep(5000);
         return driver.findElement(signInWithGoogleTab).isDisplayed();
     }
 
     public void clickSignInWithGoogleTab() {
         LOG.info("Click Sign In With Google Tab");
+        sleep(5000);
         driver.findElement(signInWithGoogleTab).click();
     }
 
     public boolean isInputEmailAddressFieldDisplayed() {
         LOG.info("Verify if Email Field is Displayed");
+        sleep(5000);
         return driver.findElement(inputEmailAddressField).isDisplayed();
     }
 
@@ -177,19 +187,28 @@ public class MyAccountPage extends BasePage {
         driver.findElement(clickSaveChanges).click();
     }
 
-   public boolean isChangePasswordTabDisplayed(){
+    public boolean isChangePasswordTabDisplayed() {
         LOG.info("Verify if Change Password is Displayed");
-       return driver.findElement(clickChangePasswordTab).isDisplayed();
-   }
+        return driver.findElement(clickChangePasswordTab).isDisplayed();
+    }
 
-    public void ClickChangePasswordTab(){
+    public void ClickChangePasswordTab() {
         LOG.info("Click Change Password Tab");
         driver.findElement(clickChangePasswordTab).click();
     }
 
-    public void clickAddressBook(){
+    public void clickAddressBook() {
         LOG.info("Click Address Book");
         driver.findElement(clickAddressBook).click();
     }
 
+
+    public void acceptAgreement() {
+        LOG.info("Accepting agreement");
+        sleep(5000L);
+        if (driver.findElement(agreementBanner).isDisplayed()) {
+            driver.findElement(acceptButton).click();
+        }
+
+    }
 }

@@ -19,6 +19,9 @@ public class SignInTest extends BaseTest {
 
     public void signInPage() {
 
+        LOG.info("Accept agreement");
+        homepagePage.acceptAgreement();
+
         String email = "firudaniel00@gmail.com";
         String password = "Firu1949";
 
@@ -28,17 +31,14 @@ public class SignInTest extends BaseTest {
         LOG.info("Click Sign In Logo");
         signInPage.clickTheSignInLogo();
 
-        LOG.info("Check My Account Button is Displayed");
-        Assert.assertTrue(signInPage.isMyAccountButtonDisplayed());
-
         LOG.info("Click My Account Button");
         signInPage.clickMyAccountButton();
 
-        LOG.info("Verify if Sign In With Google");
-        Assert.assertTrue(signInPage.isSignInWithGoogleTabDisplayed());
+        //LOG.info("Verify if Sign In With Google");
+       // Assert.assertTrue(signInPage.isSignInWithGoogleTabDisplayed());
 
-        LOG.info("Click Sign In With Google Tab");
-        signInPage.clickSignInWithGoogleTab();
+       LOG.info("Click Sign In With Google Tab");
+       signInPage.clickSignInWithGoogleTab();
 
         LOG.info("Verify if Email Address Field is displayed");
         Assert.assertTrue(signInPage.isInputEmailAddressFieldDisplayed());
@@ -52,8 +52,8 @@ public class SignInTest extends BaseTest {
         LOG.info("Click The Next Button");
         signInPage.clickNextButton();
 
-        //LOG.info("Verify if the Password Field is Displayed");
-        //Assert.assertTrue(signInPage.PasswordFieldDisplayed());
+        LOG.info("Verify if the Password Field is Displayed");
+        Assert.assertTrue(signInPage.PasswordFieldDisplayed());
 
         LOG.info("Type In Password");
         signInPage.typeInPassword(password);

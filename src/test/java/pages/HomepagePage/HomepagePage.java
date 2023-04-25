@@ -11,6 +11,7 @@ public class HomepagePage extends BasePage {
 
     private HomepagePage() {
     }
+
     public static HomepagePage getInstance() {
         if (instance == null) {
             instance = new HomepagePage();
@@ -18,30 +19,53 @@ public class HomepagePage extends BasePage {
         return instance;
     }
 
+
+    public static By acceptButton = By.xpath("//div/button[@id='onetrust-accept-btn-handler']");
+    public static By agreementBanner = By.xpath("//div[@id='onetrust-banner-sdk']");
     private By checkTitle = By.xpath("//img[@alt='ASOS logo']");
-    private By clickWomenTab = By.xpath("//a[@href='/women/new-in/cat/?cid=27108&ctaref=15offnewcustomer|globalbanner|ww']");
     private By clickSearchTab = By.id("chrome-search");
+    private By clickSingInLogo = By.xpath("//span[@type='accountUnfilled']");
+    private By clickWishlistButton = By.xpath("//span[@type='heartUnfilled']");
+    private By clickCheckOutButton = By.xpath("//span[@type='bagUnfilled']");
+    private By clickWomenTab = By.xpath("//a[@class='src-GlobalBanner-Button-Button_button']");
+
+    public void acceptAgreement() {
+        LOG.info("Accepting agreement");
+        sleep(5000L);
+        if (driver.findElement(agreementBanner).isDisplayed()) {
+            driver.findElement(acceptButton).click();
+        }
+    }
 
     public boolean isTheTitleDisplayed() {
         LOG.info("Verify if the Title is displayed");
         return driver.findElement(checkTitle).isDisplayed();
     }
 
-    public boolean isWomenTabDisplayed() {
-        LOG.info("Verify if Women Tab is Displayed");
-        return driver.findElement(clickWomenTab).isDisplayed();
-    }
-
-    public void setClickWomenTab() {
-        LOG.info("Click Women Tab");
-        driver.findElement(clickWomenTab).click();
-    }
-
-    public void clickSearchTab(){
+    public void clickSearchTab() {
         LOG.info("Click the search tab");
         driver.findElement(clickSearchTab);
     }
 
+    public boolean isTheSignInLogoDisplayed() {
+        LOG.info("Verify If The Sign In Logo is Displayed");
+        return driver.findElement(clickSingInLogo).isDisplayed();
+    }
+
+    public void clickTheSignInLogo() {
+        LOG.info("Click Sign In Logo Button");
+        driver.findElement(clickSingInLogo).click();
+    }
+
+    public void clickWishlistButton() {
+        LOG.info("Click Wishlist Button");
+        driver.findElement(clickWishlistButton).click();
+    }
+
+    public void clickCheckOutButton() {
+        LOG.info("Click CheckOut Button");
+        driver.findElement(clickCheckOutButton).click();
+    }
 }
 
 

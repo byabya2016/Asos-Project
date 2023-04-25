@@ -11,27 +11,30 @@ import static pages.BasePage.getBaseUrl;
 public class  HomepageTest extends BaseTest {
     private String newUrl = getBaseUrl();
     private static final Logger LOG = LoggerFactory.getLogger(HomepageTest.class);
-    private Object String;
 
     @Test
 
-    public void signInPage() {
+    public void homepagePage() {
+        LOG.info("Accept agreement");
+        homepagePage.acceptAgreement();
 
         LOG.info("Verify if the Title is displayed");
         Assert.assertTrue(homepagePage.isTheTitleDisplayed());
 
-        LOG.info("Verify if Women Tab is Displayed");
-        Assert.assertTrue(homepagePage.isWomenTabDisplayed());
-
-        LOG.info("Click Women Tab");
-        homepagePage.setClickWomenTab();
-
         LOG.info("Click the search tab");
         homepagePage.clickSearchTab();
+
+        LOG.info("Verify if Sign In Logo is Displayed");
+        Assert.assertTrue(homepagePage.isTheSignInLogoDisplayed());
+
+        LOG.info("Click Sign In Logo");
+        homepagePage.clickTheSignInLogo();
+
+        LOG.info("Click Wishlist Button");
+        homepagePage.clickWishlistButton();
+
+        LOG.info("Click CheckOut Button");
+        homepagePage.clickCheckOutButton();
+
     }
-
-
-
-
-
 }

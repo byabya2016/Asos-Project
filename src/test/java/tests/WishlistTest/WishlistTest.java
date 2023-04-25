@@ -16,8 +16,11 @@ public class WishlistTest extends BaseTest {
 
     @Test
     public void wishlistPage() {
-        String size = "10";
 
+        String size = "UK 10";
+
+        LOG.info("Accept agreement");
+        homepagePage.acceptAgreement();
 
         LOG.info("Click Women Tab");
         wishlistPage.clickWomenTab();
@@ -31,10 +34,10 @@ public class WishlistTest extends BaseTest {
         LOG.info("Select size");
         wishlistPage.selectSizeTub(size);
 
+        LOG.info("Add item to Wishlist");
+        wishlistPage.clickWishlistTab();
+
         LOG.info("Click Add to Bag");
         wishlistPage.clickAddToBagButton();
-
-
-
     }
 }
