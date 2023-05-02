@@ -16,10 +16,13 @@ public class  HomepageTest extends BaseTest {
 
     public void homepagePage() {
         LOG.info("Accept agreement");
-        homepagePage.acceptAgreement();
+        myOrdersPage.acceptAgreement();
 
         LOG.info("Verify if the Title is displayed");
         Assert.assertTrue(homepagePage.isTheTitleDisplayed());
+
+        LOG.info("Click the search tab");
+        Assert.assertTrue(homepagePage.isSearchTabDisplayed());
 
         LOG.info("Click the search tab");
         homepagePage.clickSearchTab();

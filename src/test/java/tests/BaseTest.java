@@ -3,20 +3,22 @@ package tests;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import pages.CheckoutPage.CheckoutPage;
+import pages.BasePage;
+import pages.CheckOutPage.CheckOutPage;
 import pages.HomepagePage.HomepagePage;
 import pages.MyAccountPage.MyAccountPage;
-import pages.SignInPage.SignInPage;
-import pages.BasePage;
+import pages.MyOrdersPage.MyOrdersPage;
+import pages.SearchTabPage.SearchTabPage;
 import pages.WishlistPage.WishlistPage;
 
 public class BaseTest {
 
-    public SignInPage signInPage = SignInPage.getInstance();
-    public MyAccountPage myOrderPage = MyAccountPage.getInstance();
+    public MyAccountPage myAccountPage = MyAccountPage.getInstance();
     public WishlistPage wishlistPage = WishlistPage.getInstance();
     public HomepagePage homepagePage = HomepagePage.getInstance();
-    public CheckoutPage checkoutPage = CheckoutPage.getInstance();
+    public MyOrdersPage myOrdersPage = MyOrdersPage.getInstance();
+    public SearchTabPage searchTabPage = SearchTabPage.getInstance();
+    public CheckOutPage checkOutPage = CheckOutPage.getInstance();
 
     @BeforeSuite
     public void init() {
@@ -28,6 +30,4 @@ public class BaseTest {
 
         BasePage.tearDown();
     }
-
-
 }

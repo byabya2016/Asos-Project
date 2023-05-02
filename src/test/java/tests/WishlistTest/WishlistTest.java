@@ -2,9 +2,7 @@ package tests.WishlistTest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.WishlistPage.WishlistPage;
 import tests.BaseTest;
 
 import static pages.BasePage.getBaseUrl;
@@ -20,7 +18,7 @@ public class WishlistTest extends BaseTest {
         String size = "UK 10";
 
         LOG.info("Accept agreement");
-        homepagePage.acceptAgreement();
+        myOrdersPage.acceptAgreement();
 
         LOG.info("Click Women Tab");
         wishlistPage.clickWomenTab();

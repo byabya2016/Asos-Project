@@ -1,6 +1,22 @@
 <suite name="testng" verbose="1">
     <test name="PositiveTest">
         <classes>
+            <class name="tests.HomepageTest.HomepageTest">
+
+            </class>
+            <class name="tests.MyAccountTest.MyAccountTest">
+
+            </class>
+            <class name="tests.MyOrdersTest.MyOrdersTest">
+
+            </class>
+            <class name="tests.SearchTabTest.SearchTabTest">
+
+            </class>
+            <class name="tests.CheckOutTest.CheckOutTest">
+
+            </class>
+
         </classes>
     </test>
 

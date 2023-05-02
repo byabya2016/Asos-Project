@@ -19,7 +19,6 @@ public class HomepagePage extends BasePage {
         return instance;
     }
 
-
     public static By acceptButton = By.xpath("//div/button[@id='onetrust-accept-btn-handler']");
     public static By agreementBanner = By.xpath("//div[@id='onetrust-banner-sdk']");
     private By checkTitle = By.xpath("//img[@alt='ASOS logo']");
@@ -28,10 +27,11 @@ public class HomepagePage extends BasePage {
     private By clickWishlistButton = By.xpath("//span[@type='heartUnfilled']");
     private By clickCheckOutButton = By.xpath("//span[@type='bagUnfilled']");
     private By clickWomenTab = By.xpath("//a[@class='src-GlobalBanner-Button-Button_button']");
+    private By clickMenTab = By.xpath("//a[@class='src-GlobalBanner-Button-Button_button']");
+
 
     public void acceptAgreement() {
         LOG.info("Accepting agreement");
-        sleep(5000L);
         if (driver.findElement(agreementBanner).isDisplayed()) {
             driver.findElement(acceptButton).click();
         }
@@ -40,6 +40,11 @@ public class HomepagePage extends BasePage {
     public boolean isTheTitleDisplayed() {
         LOG.info("Verify if the Title is displayed");
         return driver.findElement(checkTitle).isDisplayed();
+    }
+
+    public boolean isSearchTabDisplayed(){
+        LOG.info("Verify if the Search Tab is Displayed");
+        return driver.findElement(clickSearchTab).isDisplayed();
     }
 
     public void clickSearchTab() {
@@ -66,6 +71,8 @@ public class HomepagePage extends BasePage {
         LOG.info("Click CheckOut Button");
         driver.findElement(clickCheckOutButton).click();
     }
+
+
 }
 
 

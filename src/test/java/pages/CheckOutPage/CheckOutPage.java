@@ -1,4 +1,4 @@
-package pages.WishlistPage;
+package pages.CheckOutPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
@@ -6,41 +6,41 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.BasePage;
 
-public class WishlistPage extends BasePage {
-    public static final Logger LOG = LoggerFactory.getLogger(WishlistPage.class);
-    public static WishlistPage instance;
+public class CheckOutPage extends BasePage {
+    public static final Logger LOG = LoggerFactory.getLogger(pages.CheckOutPage.CheckOutPage.class);
+    public static pages.CheckOutPage.CheckOutPage instance;
 
-
-    public WishlistPage() {
+    private CheckOutPage() {
     }
 
-    public static WishlistPage getInstance() {
+    public static pages.CheckOutPage.CheckOutPage getInstance() {
         if (instance == null) {
-            instance = new WishlistPage();
-
+            instance = new pages.CheckOutPage.CheckOutPage();
         }
         return instance;
     }
 
     public static By acceptButton = By.xpath("//div/button[@id='onetrust-accept-btn-handler']");
     public static By agreementBanner = By.xpath("//div[@id='onetrust-banner-sdk']");
-    private By clickWomenTab = By.xpath("//a[@href='/women/new-in/cat/?cid=27108&ctaref=15offnewcustomer|globalbanner|ww']");
+    private By clickWomenButton = By.xpath("//a[@href='/women/new-in/cat/?cid=27108&ctaref=15offnewcustomer|globalbanner|ww']");
     private By clickNewInClothingTab = By.xpath("//a[@href='/women/new-in/new-in-clothing/cat/?cid=2623&ctaref=cat_header']");
-    private By clickOneItem = By.xpath("//div/section/article/a");
-    private By selectSizeTab = By.xpath("//select[@data-id='sizeSelect']");
-    private By clickWishlistTab = By.xpath("//div[@id='aside-below-price']//button[contains(@aria-label, 'Save for later')]");
+    private By clickBlackDress = By.xpath("//div/section/article/a");
+    private By selectSizeButton = By.xpath("//select[@data-id='sizeSelect']");
+    private By clickWishlistButton = By.xpath("//div[@id='aside-below-price']//button[contains(@aria-label, 'Save for later')]");
     private By clickAddToBagButton = By.id("product-add-button");
+
 
     public void acceptAgreement() {
         LOG.info("Accepting agreement");
+        sleep(1000);
         if (driver.findElement(agreementBanner).isDisplayed()) {
             driver.findElement(acceptButton).click();
         }
     }
 
-    public void clickWomenTab() {
+    public void clickWomenButton() {
         LOG.info("Click Women Tab");
-        driver.findElement(clickWomenTab).click();
+        driver.findElement(clickWomenButton).click();
     }
 
     public void clickNewInClothingTab() {
@@ -48,29 +48,31 @@ public class WishlistPage extends BasePage {
         driver.findElement(clickNewInClothingTab).click();
     }
 
-    public void setClickOneItem() {
+    public void clickBlackDress() {
         LOG.info("Click one item");
         sleep(1000);
-        driver.findElement(clickOneItem).click();
+        driver.findElement(clickBlackDress).click();
     }
 
-    public void selectSizeTub(String size) {
+    public void selectSizeButton(String size) {
         LOG.info("Select size");
-        Select sizeTab = new Select(driver.findElement(selectSizeTab));
+        Select sizeTab = new Select(driver.findElement(selectSizeButton));
         sizeTab.selectByVisibleText(size);
     }
 
-    public void clickWishlistTab(){
+    public void clickWishlistButton() {
         LOG.info("Click Wishlist Tab");
-        driver.findElement(clickWishlistTab).click();
+        driver.findElement(clickWishlistButton).click();
     }
 
-    public void clickAddToBagButton(){
+    public void clickAddToBagButton() {
         LOG.info("Click Add to Bag");
         driver.findElement(clickAddToBagButton).click();
     }
 
 }
+
+
 
 
 
